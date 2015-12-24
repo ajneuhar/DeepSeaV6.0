@@ -7,10 +7,22 @@ public class SpecialArrowMove : MonoBehaviour {
 	public int damageToEnemy;
 	public int moveSpeed = 100; 
 
-	public GameObject electricity;
-
 	// For Sound
 	public static bool electricSound;
+
+
+	public GameObject electicity;
+	public GameObject enemy1Death;
+	public GameObject enemy2Death;
+	public GameObject enemy3Death;
+
+	Player player;
+	
+	
+	void Start() {
+		player = GameObject.Find("Player").GetComponent<Player>();
+	}
+	
 
 	
 	// Update is called once per frame
@@ -33,38 +45,17 @@ public class SpecialArrowMove : MonoBehaviour {
 			Animator anim = other.gameObject.GetComponent<Animator>();
 			
 			if (!anim.GetBool("death")) {
-				
-				
-				Instantiate(electricity, new Vector3(0f, 0f, 0f), Quaternion.identity);
+
 				electricSound = true; 
+
+				// kill first the enemy we hit.
+				enemy.DamageEnemy(16);
+				Instantiate(electicity, new Vector3(0f, 0f, 0f), Quaternion.identity);
+
 				//TODO : kill all enemys.
 				transform.position = new Vector3(400f, 50f,0f);
+			
 
-				GameObject[] enemy1 = GameObject.FindGameObjectsWithTag("enemy1");
-				GameObject[] enemy2 = GameObject.FindGameObjectsWithTag("enemy2");
-				GameObject[] enemy3 = GameObject.FindGameObjectsWithTag("enemy3");
-
-				int numOfEnemys = enemy1.Length + enemy2.Length + enemy3.Length;
-
-
-
-
-				for (int i = 0; i < enemy1.Length; i++) {
-					if(enemy1[i] != null) {
-						enemy1[i].GetComponent<Enemy>().DamageEnemy(16);
-					}
-				}
-				for (int i = 0; i < enemy2.Length; i++) {
-					if(enemy2[i] != null) {
-						enemy2[i].GetComponent<Enemy>().DamageEnemy(16);
-					}
-				}
-				for (int i = 0; i < enemy3.Length; i++) {
-					if(enemy3[i] != null) {
-						enemy3[i].GetComponent<Enemy>().DamageEnemy(16);
-					}
-				}
-				
 				Destroy(this.gameObject);
 				
 
