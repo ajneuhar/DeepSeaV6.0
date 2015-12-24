@@ -10,7 +10,6 @@ public class SoundManager : MonoBehaviour {
 	//Boat
 	public AudioClip boatHitByEnemy;
 	public AudioClip tookPowerUp;
-	public AudioClip gotShield; 
 	public AudioClip death;
 	
 	//Player
@@ -33,17 +32,20 @@ public class SoundManager : MonoBehaviour {
 	//PowerUps
 	public AudioClip powerUpComeUp;
 	public AudioClip gotLife;
-	public AudioClip gotExpArrows; // Need to make a got this powerup sound.
-	public AudioClip gotDepthArrows; // Need to make a got this powerup sound. 
+	public AudioClip gotExpArrows; 
+	public AudioClip gotDepthArrows; 
 	public AudioClip gotShield1;
-	public AudioClip gotMachineGun; // Need to make sound!!!!!
-
+	public AudioClip haveShield; 
+	public AudioClip gotMachineGun; 
+	public AudioClip gotElectricArr; 
+	public AudioClip electricity; 
 	
 	//creature sounds 
 	public AudioClip enemyDeath; 
+
 	
 	//movie scenes music
-	// Need to make electricity sound!!! 
+	 
 	
 	// Use this for initialization
 	void Start () {
@@ -71,11 +73,7 @@ public class SoundManager : MonoBehaviour {
 			sourceAudio.PlayOneShot(tookPowerUp, 1f);
 			PowerUps.tookPowerUp = false; 
 		}
-		
-		if (PowerUps.haveShield) {
-			sourceAudio.PlayOneShot(gotShield, 1f); 
-			PowerUps.haveShield = false;
-		}
+
 		
 		if (LevelManager.openSound) {
 			
@@ -157,6 +155,11 @@ public class SoundManager : MonoBehaviour {
 			sourceAudio.PlayOneShot(gotShield1, 1f);
 			PowerUps.gotShield = false;
 		}
+
+		if (PowerUps.haveShield) {
+			sourceAudio.PlayOneShot(haveShield, 1f); 
+			PowerUps.haveShield = false;
+		}
 		
 		if (PowerUps.gotMachineGun) {
 			sourceAudio.PlayOneShot(gotMachineGun, 1f);
@@ -172,7 +175,10 @@ public class SoundManager : MonoBehaviour {
 			sourceAudio.PlayOneShot(powerUpComeUp, 1f);
 			GameManager.powerUpcomeUp = false;
 		}
-		
-		
+
+		if (SpecialArrowMove.electricSound) {
+			sourceAudio.PlayOneShot(electricity, 1f);
+			SpecialArrowMove.electricSound = false; 
+		}
 	}
 }

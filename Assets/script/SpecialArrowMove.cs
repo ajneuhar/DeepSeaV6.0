@@ -7,15 +7,11 @@ public class SpecialArrowMove : MonoBehaviour {
 	public int damageToEnemy;
 	public int moveSpeed = 100; 
 
+	public GameObject electricity;
 
+	// For Sound
+	public static bool electricSound;
 
-
-
-	public GameObject electicity;
-	
-	
-	
-	
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,7 +35,8 @@ public class SpecialArrowMove : MonoBehaviour {
 			if (!anim.GetBool("death")) {
 				
 				
-				Instantiate(electicity, new Vector3(0f, 0f, 0f), Quaternion.identity);
+				Instantiate(electricity, new Vector3(0f, 0f, 0f), Quaternion.identity);
+				electricSound = true; 
 				//TODO : kill all enemys.
 				transform.position = new Vector3(400f, 50f,0f);
 

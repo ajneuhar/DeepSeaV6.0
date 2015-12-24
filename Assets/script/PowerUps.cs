@@ -21,8 +21,6 @@ public class PowerUps : MonoBehaviour {
 
 	// For changing Fire Rate.
 	private SpearGun spearGun;
-	
-
 
 	//For Animation
 	Animator anim;
@@ -35,6 +33,7 @@ public class PowerUps : MonoBehaviour {
 	public static bool gotDepthArrows; 
 	public static bool gotShield; 
 	public static bool gotMachineGun;
+	public static bool gotElectricArr; 
 
 
 
@@ -51,12 +50,14 @@ public class PowerUps : MonoBehaviour {
 	
 
 	private void RandomPowerUp() {
+		/*
 		if (spearGun.numOfSpecialArrow >= 4) {
 			powerUp = Random.Range(1, 6);
 		} else {
 			powerUp = Random.Range(1, 7);
-		}	
+		}	*/
 
+		powerUp = 4;
 		powerUpTime = Random.Range(20, 31);
 	}
 
@@ -116,6 +117,7 @@ public class PowerUps : MonoBehaviour {
 			break;
 
 		case(6) :
+			gotElectricArr = true;
 			spearGun.numOfSpecialArrow++;
 			//: TODO: GUI for special Arrow.
 			break;
