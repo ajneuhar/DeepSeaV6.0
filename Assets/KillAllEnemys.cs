@@ -17,6 +17,8 @@ public class KillAllEnemys : MonoBehaviour {
 		}
 		
 		player.SetUnTouchable(false);
+		GameManager.numOfEnemys = 0;
+
 		Destroy(this);
 	}
 
