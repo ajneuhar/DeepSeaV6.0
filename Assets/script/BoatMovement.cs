@@ -119,7 +119,7 @@ public class BoatMovement : MonoBehaviour {
 		}
 	}
 
-
+	/*
 	void OnCollisionEnter2D (Collision2D other) {
 		
 		string tag = other.gameObject.tag;
@@ -133,6 +133,8 @@ public class BoatMovement : MonoBehaviour {
 			}
 		}
 	}
+
+*/
 
 
 	IEnumerator BlinkBoat() {

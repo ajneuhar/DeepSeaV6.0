@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour {
 			enemyCollider2D.isTrigger = true;
 			iTween.Stop(this.gameObject);
 			Rigidbody2D enemyR = GetComponent<Rigidbody2D>();
-			enemyR.constraints = RigidbodyConstraints2D.FreezePosition;
+			enemyR.constraints = RigidbodyConstraints2D.FreezeAll;
 
 			StartCoroutine(DeathAnimation());
 			AddScore();
