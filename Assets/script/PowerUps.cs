@@ -50,14 +50,12 @@ public class PowerUps : MonoBehaviour {
 	
 
 	private void RandomPowerUp() {
-		/*
 		if (spearGun.numOfSpecialArrow >= 4) {
-			powerUp = Random.Range(1, 6);
+			powerUp = Random.Range(1, 5);
 		} else {
-			powerUp = Random.Range(1, 7);
-		}	*/
+			powerUp = Random.Range(1, 6);
+		}	
 
-		powerUp = 4;
 		powerUpTime = Random.Range(20, 31);
 	}
 
@@ -83,7 +81,9 @@ public class PowerUps : MonoBehaviour {
 			Destroy(this.gameObject);
 			break;
 
-		case(3) :
+
+		/* case(3) :
+
 			gotDepthArrows = true;
 			spear.WeaponUpdate(3);
 			Debug.Log("Update Weapon To ==============>" + spear.weaponHitLayer + "  " + spear.damageToEnemy);
@@ -91,8 +91,9 @@ public class PowerUps : MonoBehaviour {
 			spear.WeaponUpdate(1);
 			Destroy(this.gameObject);
 			break;
+			*/
 
-		case(4) : 
+		case(3) : 
 			gotShield = true; 
 			boatR.sprite = untouchableBoat;
 			haveShield = true; 
@@ -107,7 +108,7 @@ public class PowerUps : MonoBehaviour {
 			Destroy(this.gameObject);
 			break;
 
-		case(5) :
+		case(4) :
 			gotMachineGun = true;
 			spearGun.fireRate = 4;
 
@@ -116,7 +117,7 @@ public class PowerUps : MonoBehaviour {
 			spearGun.fireRate = 2;
 			break;
 
-		case(6) :
+		case(5) :
 			gotElectricArr = true;
 			spearGun.numOfSpecialArrow++;
 			//: TODO: GUI for special Arrow.
