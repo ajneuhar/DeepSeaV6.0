@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		level = 1;
+		level = 10;
 		spear.WeaponUpdate(1);
 		CalcNextLevelEnemys();
 		NextLevel();
