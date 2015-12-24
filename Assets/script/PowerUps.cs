@@ -21,8 +21,7 @@ public class PowerUps : MonoBehaviour {
 
 	// For changing Fire Rate.
 	private SpearGun spearGun;
-
-	public GameObject boxExplode;
+	
 
 
 	//For Animation
@@ -56,8 +55,7 @@ public class PowerUps : MonoBehaviour {
 			powerUp = Random.Range(1, 6);
 		} else {
 			powerUp = Random.Range(1, 7);
-		}
-		powerUp = 2;
+		}	
 
 		powerUpTime = Random.Range(20, 31);
 	}

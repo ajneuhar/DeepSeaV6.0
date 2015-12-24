@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour {
 	IEnumerator WaitForHitAnimation() {
 		anim.SetBool("enemyHit", true);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(2f);
 		anim.SetBool("enemyHit", false);
 	}
 

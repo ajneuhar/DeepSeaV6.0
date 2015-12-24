@@ -41,6 +41,7 @@ public class SpecialArrowMove : MonoBehaviour {
 				
 				Instantiate(electicity, new Vector3(0f, 0f, 0f), Quaternion.identity);
 				//TODO : kill all enemys.
+				transform.position = new Vector3(400f, 50f,0f);
 
 				GameObject[] enemy1 = GameObject.FindGameObjectsWithTag("enemy1");
 				GameObject[] enemy2 = GameObject.FindGameObjectsWithTag("enemy2");
@@ -52,13 +53,19 @@ public class SpecialArrowMove : MonoBehaviour {
 
 
 				for (int i = 0; i < enemy1.Length; i++) {
-					enemy1[i].GetComponent<Enemy>().DamageEnemy(16);
+					if(enemy1[i] != null) {
+						enemy1[i].GetComponent<Enemy>().DamageEnemy(16);
+					}
 				}
 				for (int i = 0; i < enemy2.Length; i++) {
-					enemy2[i].GetComponent<Enemy>().DamageEnemy(16);
+					if(enemy2[i] != null) {
+						enemy2[i].GetComponent<Enemy>().DamageEnemy(16);
+					}
 				}
 				for (int i = 0; i < enemy3.Length; i++) {
-					enemy3[i].GetComponent<Enemy>().DamageEnemy(16);
+					if(enemy3[i] != null) {
+						enemy3[i].GetComponent<Enemy>().DamageEnemy(16);
+					}
 				}
 				
 				Destroy(this.gameObject);

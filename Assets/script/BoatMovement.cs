@@ -112,6 +112,7 @@ public class BoatMovement : MonoBehaviour {
 				player.DamagePlayer(damageToPlayer);
                 enemy.EnemyTouchPlayer();
 				Debug.Log("Player Got Hit!!!!!!!!! Is UnTouchable?????  " + player.GetUnTouchable());
+				Debug.Log("Player Got Hit By ==============>  " + tag);
 				if(!player.GetUnTouchable()) {
 					StartCoroutine(BlinkBoat());
 				}
