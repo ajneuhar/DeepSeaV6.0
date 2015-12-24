@@ -21,6 +21,10 @@ public class SpearGun : MonoBehaviour {
 
 	public static bool gunShot;
 
+	public GameObject specialArrow;
+	public int numOfSpecialArrow;
+	bool isSpecialArrow;
+
 
 
 
@@ -32,6 +36,8 @@ public class SpearGun : MonoBehaviour {
 		if (firepoint == null) {
 			Debug.LogError("No firepoint?! What?!");
 		}
+		numOfSpecialArrow = 1;
+		isSpecialArrow = false;
 	}
 	
 	// Update is called once per frame
@@ -45,6 +51,12 @@ public class SpearGun : MonoBehaviour {
 			if (Input.GetKey (KeyCode.Space) && Time.time > timeTofire) {
 				timeTofire = Time.time + 1/fireRate;
 				fire ();
+			} else if (Input.GetKey (KeyCode.LeftShift) && Time.time > timeTofire && numOfSpecialArrow > 0) {
+				timeTofire = Time.time + 1/fireRate;
+				numOfSpecialArrow--;
+				isSpecialArrow = true;
+				fire ();
+
 			}
 		}
 	}
@@ -57,8 +69,14 @@ public class SpearGun : MonoBehaviour {
 		Vector2 firePointPosition = new Vector2 (firepoint.position.x, firepoint.position.y);
 		RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePostion-firePointPosition, 100, whatToHit);
 		if (Time.time >= timeToSpawn) {
-			effect ();
-			shootBullet();
+			if (isSpecialArrow) {
+				effect ();
+			} else {
+				shootBullet();
+			}
+
+
+
 			timeToSpawn = Time.time + 1/spawnRate;
 		} 
 		Debug.DrawLine (firePointPosition, (mousePostion-firePointPosition) * 100, Color.black);
@@ -70,7 +88,8 @@ public class SpearGun : MonoBehaviour {
 	}
 
 	void effect () {
-		//TODO: Instantiate (bulletTrail, firepoint.position, firepoint.rotation);
+		Instantiate (specialArrow, firepoint.position, firepoint.rotation);
+		isSpecialArrow = false;
 	}
 
 	void shootBullet () {

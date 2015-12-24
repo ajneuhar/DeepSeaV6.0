@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour {
 
 	void NextLevel () {
 		levelOver = false; 
-		openSound = true; 
+		openSound = true;
 		CreateEnemys();
 
 	}

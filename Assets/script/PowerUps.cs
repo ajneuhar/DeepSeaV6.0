@@ -52,8 +52,13 @@ public class PowerUps : MonoBehaviour {
 	
 
 	private void RandomPowerUp() {
+		if (spearGun.numOfSpecialArrow >= 4) {
+			powerUp = Random.Range(1, 6);
+		} else {
+			powerUp = Random.Range(1, 7);
+		}
+		powerUp = 2;
 
-		powerUp = Random.Range(1, 6);
 		powerUpTime = Random.Range(20, 31);
 	}
 
@@ -111,7 +116,15 @@ public class PowerUps : MonoBehaviour {
 
 			spearGun.fireRate = 2;
 			break;
+
+		case(6) :
+			spearGun.numOfSpecialArrow++;
+			//: TODO: GUI for special Arrow.
+			break;
 		}
+
+
+
 
 
 	}

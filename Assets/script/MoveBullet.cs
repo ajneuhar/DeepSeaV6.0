@@ -21,7 +21,12 @@ public class MoveBullet : MonoBehaviour {
 	public Sprite HeapExpArrow;
 
 	public bool isArrowExp;
-	public GameObject explodeAnim;
+	public GameObject exploadeHitAnim;
+
+
+	public GameObject hitAnim;
+
+
 
 
 	
@@ -46,8 +51,13 @@ public class MoveBullet : MonoBehaviour {
 			Animator anim = other.gameObject.GetComponent<Animator>();
 
 			if (weaponHitLayer <= sprite.sortingOrder && !anim.GetBool("death")) {
+				
+				if (isArrowExp) {
+					Instantiate(exploadeHitAnim, transform.position, Quaternion.identity);
+				} else {
+					Instantiate(hitAnim, transform.position, Quaternion.identity);
+				}
 
-				Instantiate(explodeAnim, transform.position, Quaternion.identity);
 
 
 				Destroy(this.gameObject);
@@ -67,6 +77,7 @@ public class MoveBullet : MonoBehaviour {
 	public void WeaponUpdate(int weaponType){
 		spearR = GetComponent<SpriteRenderer>();
 		CurrentArrow = GameObject.Find("CurrentArrow").GetComponent<Image>();
+
 
 		switch(weaponType) {
 		case(1) :
@@ -92,7 +103,9 @@ public class MoveBullet : MonoBehaviour {
 			CurrentArrow.sprite = HeapDeepArrow;
 			isArrowExp = false;
 			return;
+
+
 		}
-	}
+	} 
 
 }
