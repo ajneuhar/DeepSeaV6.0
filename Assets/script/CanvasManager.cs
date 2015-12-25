@@ -8,11 +8,15 @@ public class CanvasManager : MonoBehaviour {
 	public GameObject canvasOne;
 	public GameObject canvasTwo;
 
+	public Text highScore;
+
 
 
 	// Use this for initialization
 	void Start () {
 		canvasOne.active = true;
+
+		highScore.text = "Highest Score is: " + PlayerPrefs.GetInt("HighScore");
 	}
 
 	public void onClickStartButton() {

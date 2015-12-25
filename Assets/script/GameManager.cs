@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 			Debug.LogError("new high score is ==========> " + PlayerPrefs.GetInt("HighScore"));
 		}
 
-		//Application.LoadLevel("MainMenu");
+		Application.LoadLevel("MainMenu");
 		
 	}
 	
