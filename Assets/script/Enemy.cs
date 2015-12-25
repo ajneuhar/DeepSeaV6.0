@@ -58,8 +58,8 @@ public class Enemy : MonoBehaviour {
 
 
 		if (enemyStats.health <= 0) {
-			anim.SetBool("death", true);
 			enemyDeath = true;
+			anim.SetBool("death", true);
 			enemyCollider2D.isTrigger = true;
 			iTween.Stop(this.gameObject);
 			Rigidbody2D enemyR = GetComponent<Rigidbody2D>();

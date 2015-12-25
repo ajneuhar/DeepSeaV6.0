@@ -39,9 +39,11 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip gotMachineGun; 
 	public AudioClip gotElectricArr; 
 	public AudioClip electricity; 
+	public int choosePowerUp;
 	
 	//creature sounds 
 	public AudioClip enemyDeath; 
+	
 
 	
 	//movie scenes music
@@ -49,8 +51,7 @@ public class SoundManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		sourceAudio = GetComponent<AudioSource>();
-		
+		sourceAudio = GetComponent<AudioSource>();	
 	}
 	
 	// Update is called once per frame
@@ -68,11 +69,12 @@ public class SoundManager : MonoBehaviour {
 			sourceAudio.PlayOneShot(boatHitByEnemy, 1f);
 			BoatMovement.counter = 0;
 		}
-		
+
+		/*
 		if (PowerUps.tookPowerUp) {
 			sourceAudio.PlayOneShot(tookPowerUp, 1f);
 			PowerUps.tookPowerUp = false; 
-		}
+		}*/
 
 		
 		if (LevelManager.openSound) {
@@ -137,23 +139,40 @@ public class SoundManager : MonoBehaviour {
 		}
 		
 		if (PowerUps.gotLife) {
-			sourceAudio.PlayOneShot(gotLife, 1f);
-			PowerUps.gotLife = false;
+			if (LevelManager.openSound) {
+				choosePowerUp = 1;
+				StartCoroutine(PlayPowerUpSound());
+			} else {
+				sourceAudio.PlayOneShot(gotLife, 1f);
+				PowerUps.gotLife = false;
+			}
 		}
 		
 		if (PowerUps.gotExpArrows) {
-			sourceAudio.PlayOneShot(gotExpArrows, 1f);
-			PowerUps.gotExpArrows = false;
+			if (LevelManager.openSound) {
+				choosePowerUp = 2;
+				StartCoroutine(PlayPowerUpSound());
+			} else {
+				sourceAudio.PlayOneShot(gotExpArrows, 1f);
+				PowerUps.gotExpArrows = false;
+			} 
 		}
-		
+
+		/*
 		if (PowerUps.gotDepthArrows) {
 			sourceAudio.PlayOneShot(gotDepthArrows, 1f);
 			PowerUps.gotDepthArrows = false;
-		}
+		} */
 		
 		if (PowerUps.gotShield) {
-			sourceAudio.PlayOneShot(gotShield1, 1f);
-			PowerUps.gotShield = false;
+			if (LevelManager.openSound) {
+				choosePowerUp = 3;
+				StartCoroutine(PlayPowerUpSound());
+			} else {
+				sourceAudio.PlayOneShot(gotShield1, 1f);
+				PowerUps.gotShield = false;
+			}
+
 		}
 
 		if (PowerUps.haveShield) {
@@ -162,14 +181,32 @@ public class SoundManager : MonoBehaviour {
 		}
 		
 		if (PowerUps.gotMachineGun) {
-			sourceAudio.PlayOneShot(gotMachineGun, 1f);
-			PowerUps.gotMachineGun = false;
+			if (LevelManager.openSound) {
+				choosePowerUp = 4;
+				StartCoroutine(PlayPowerUpSound());
+			} else {
+				sourceAudio.PlayOneShot(gotMachineGun, 1f);
+				PowerUps.gotMachineGun = false;
+			}
+
 		}
+
+		if (PowerUps.gotElectricArr) {
+			if (LevelManager.openSound) {
+				choosePowerUp = 4;
+				StartCoroutine(PlayPowerUpSound());
+			} else {
+				sourceAudio.PlayOneShot(gotElectricArr, 1f);
+				PowerUps.gotElectricArr = false;
+			}
+		}
+
 		
 		if (Enemy.enemyDeath) {
 			sourceAudio.PlayOneShot(enemyDeath, 1f);
 			Enemy.enemyDeath = false;
 		}
+
 
 		if (GameManager.powerUpcomeUp) {
 			sourceAudio.PlayOneShot(powerUpComeUp, 1f);
@@ -179,6 +216,35 @@ public class SoundManager : MonoBehaviour {
 		if (SpecialArrowMove.electricSound) {
 			sourceAudio.PlayOneShot(electricity, 1f);
 			SpecialArrowMove.electricSound = false; 
+		}
+	}
+
+
+	// In case I get a spower up at the beginning of the level. 
+	IEnumerator PlayPowerUpSound() {
+		yield return new WaitForSeconds(3f);
+
+		switch (choosePowerUp) {
+		case(1):
+			sourceAudio.PlayOneShot(gotLife, 1f);
+			PowerUps.gotLife = false;
+			break;
+		case(2):
+			sourceAudio.PlayOneShot(gotExpArrows, 1f);
+			PowerUps.gotExpArrows = false;
+			break;
+		case(3):
+			sourceAudio.PlayOneShot(gotShield1, 1f);
+			PowerUps.gotShield = false;
+			break;
+		case(4):
+			sourceAudio.PlayOneShot(gotMachineGun, 1f);
+			PowerUps.gotMachineGun = false;
+			break;
+		default:
+			sourceAudio.PlayOneShot(gotElectricArr, 1f);
+			PowerUps.gotElectricArr = false;
+			break;
 		}
 	}
 }
