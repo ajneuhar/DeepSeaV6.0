@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-
+	bool isPause;
 
 	public Text scoreText;
 	public static int score;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		isPause = false;
 		PowerUps.haveExplodingArrowPowerUp = false;
 		PowerUps.haveMachingGunPowerUp = false;
 		PowerUps.haveShieldPowerUp = false;
@@ -49,6 +50,16 @@ public class GameManager : MonoBehaviour {
 		if (LevelManager.level % 6 == 0) {
 			PowerUps.perLevelLife = true;
 			CreatePowerUp();
+		}
+
+		if (Input.GetKeyDown(KeyCode.P)) {
+
+			if(!isPause) {
+				Time.timeScale = 0;
+			}else {
+				Time.timeScale = 1;
+			}
+			isPause = !isPause;
 		}
 	}
 
