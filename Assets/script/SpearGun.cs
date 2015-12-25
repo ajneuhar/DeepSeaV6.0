@@ -53,7 +53,7 @@ public class SpearGun : MonoBehaviour {
 				if (Input.GetKey (KeyCode.Space) && Time.time > timeTofire) {
 					timeTofire = Time.time + 1/fireRate;
 					fire ();
-					} else if (Input.GetKey (KeyCode.LeftShift) && Time.time > timeTofire && numOfSpecialArrow > 0) {
+					} else if (Input.GetKeyDown (KeyCode.LeftShift) && Time.time > timeTofire && numOfSpecialArrow > 0) {
 					timeTofire = Time.time + 1/fireRate;
 					numOfSpecialArrow--;
 					isSpecialArrow = true;

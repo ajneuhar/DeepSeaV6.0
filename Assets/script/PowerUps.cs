@@ -44,8 +44,11 @@ public class PowerUps : MonoBehaviour {
 	public static bool perLevelLife;
 
 
+
+
 	// Use this for initialization
 	void Start () {
+
 		boatR = GameObject.Find("Boat").GetComponent<SpriteRenderer>();
 		player = GameObject.Find("Player").GetComponent<Player>();
 		spearGun = GameObject.Find("spearGun").GetComponent<SpearGun>();
@@ -89,6 +92,7 @@ public class PowerUps : MonoBehaviour {
 			Debug.Log("got life");
 			player.RevivePlayer(playerRevive);
 			yield return new WaitForSeconds(3f);
+
 			Destroy(this.gameObject);
 			break;
 		
@@ -103,6 +107,7 @@ public class PowerUps : MonoBehaviour {
 			spear.WeaponUpdate(1);
 			Debug.Log(Time.time);
 			haveExplodingArrowPowerUp = false;
+
 			Destroy(this.gameObject);
 			break;
 
@@ -132,6 +137,7 @@ public class PowerUps : MonoBehaviour {
 			player.SetUnTouchable(false);
 			Debug.Log("is player untouchable =====> " + player.GetUnTouchable());
 			haveShieldPowerUp = false;
+
 			Destroy(this.gameObject);
 			break;
 
@@ -144,12 +150,14 @@ public class PowerUps : MonoBehaviour {
 			spearGun.fireRate = 2;
 
 			haveMachingGunPowerUp = false;
+
 			Destroy(this.gameObject);
 			break;
 
 		case(5) :
 			gotElectricArr = true;
 			spearGun.numOfSpecialArrow++;
+
 			Destroy(this.gameObject);
 			//: TODO: GUI for special Arrow.
 			break;
@@ -170,6 +178,7 @@ public class PowerUps : MonoBehaviour {
 		string tag = other.gameObject.tag;
 
 		if (tag == "Boat" ) {
+			GameManager.numOfPowerUps--;
 			RandomPowerUp();
 
 			tookPowerUp = true; 

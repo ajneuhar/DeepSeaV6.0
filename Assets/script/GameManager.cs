@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	bool isPause;
+	public static bool isPause;
 
 	public Text scoreText;
 	public static int score;
@@ -19,12 +19,15 @@ public class GameManager : MonoBehaviour {
 	public static int killCount;
 	public static bool powerUpcomeUp;
 
+	public static int numOfPowerUps;
+
 
 	public GameObject enemyO;
 
 	
 	// Use this for initialization
 	void Start () {
+		numOfPowerUps = 0;
 		isPause = false;
 		PowerUps.haveExplodingArrowPowerUp = false;
 		PowerUps.haveMachingGunPowerUp = false;
@@ -60,7 +63,7 @@ public class GameManager : MonoBehaviour {
 				Time.timeScale = 1;
 			}
 			isPause = !isPause;
-		}
+		} 
 	}
 
 	public static void KillPlayer (Player player) {
@@ -91,10 +94,14 @@ public class GameManager : MonoBehaviour {
 
 
 	IEnumerator CreatePowerUp() {
-		Vector3 temp = new Vector3(Random.Range(-70, 70), Random.Range(-54, 54), 0f);
-		yield return new WaitForSeconds(2f);
-		powerUpcomeUp = true; 
-		Instantiate(powerUp, temp, Quaternion.identity);
+		if (numOfPowerUps < 2) {
+			numOfPowerUps++;
+			Vector3 temp = new Vector3(Random.Range(-70, 70), Random.Range(-54, 54), 0f);
+			yield return new WaitForSeconds(2f);
+			powerUpcomeUp = true; 
+			Instantiate(powerUp, temp, Quaternion.identity);
+		}
+	
 	}
 
 

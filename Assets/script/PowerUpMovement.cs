@@ -24,6 +24,7 @@ public class PowerUpMovement : MonoBehaviour {
 			scaleToX += 1.5f;
 			scaleToY += 1.5f;
 		}
+		powerR.sortingOrder++;
 		scaleToX = 3f;
 		scaleToY = 3f;
 		gameObject.GetComponent<Collider2D>().isTrigger = false;
