@@ -60,21 +60,21 @@ public class LevelManager : MonoBehaviour {
 	IEnumerator CreateEnemy1() {
 		for (int i = 0; i < numEnemy1; i++) {
 			Instantiate(enemy1, VectorStartEnemy(), Quaternion.identity);
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(1f);
 		}
 	}
 
 	IEnumerator CreateEnemy2() {
 		for (int i = 0; i < numEnemy2; i++) {
 			Instantiate(enemy2, VectorStartEnemy(), Quaternion.identity);
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(1.7f);
 		}
 	}
 
 	IEnumerator CreateEnemy3() {
 		for (int i = 0; i < numEnemy3; i++) {
 			Instantiate(enemy3, VectorStartEnemy(), Quaternion.identity);
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(2.4f);
 		}
 	}
 
