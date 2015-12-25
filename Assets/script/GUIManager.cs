@@ -28,26 +28,26 @@ public class GUIManager : MonoBehaviour {
 		switch (Player.playerStats.health) {
 		case(100):
 			bar.fillAmount = 1f;
-			//womanFace.sprite = face0;
+			womanFace.sprite = face0;
 			break; 
 		case(90):
-			//womanFace.sprite = face1;
+			womanFace.sprite = face1;
 			bar.fillAmount = 0.9f;
 			break;
 		case(80):
-			//womanFace.sprite = face2;
+			womanFace.sprite = face2;
 			bar.fillAmount = 0.8f;
 			break;
 		case(70):
-			//womanFace.sprite = face3;
+			womanFace.sprite = face3;
 			bar.fillAmount = 0.7f;
 			break;
 		case(60):
-			//womanFace.sprite = face4;
+			womanFace.sprite = face4;
 			bar.fillAmount = 0.6f;
 			break;
 		case(50):
-			//womanFace.sprite = face5;
+			womanFace.sprite = face5;
 			bar.fillAmount = 0.5f;
 			break;
 		case(40):
@@ -55,15 +55,15 @@ public class GUIManager : MonoBehaviour {
 			bar.fillAmount = 0.4f;
 			break; 
 		case(30):
-			//womanFace.sprite = face7;
+			womanFace.sprite = face7;
 			bar.fillAmount = 0.3f;
 			break;
 		case(20):
-			//womanFace.sprite = face8;
+			womanFace.sprite = face8;
 			bar.fillAmount = 0.2f;
 			break;
 		case(10):
-			//womanFace.sprite = face9;
+			womanFace.sprite = face9;
 			bar.fillAmount = 0.1f;
 			break;
 		default:

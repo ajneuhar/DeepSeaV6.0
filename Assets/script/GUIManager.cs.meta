@@ -1,10 +1,22 @@
 fileFormatVersion: 2
 guid: 8bc717ac868a54ee6ba4b663ce8e6812
-timeCreated: 1450106357
+timeCreated: 1451081553
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bar: {instanceID: 0}
+  - womanFace: {instanceID: 0}
+  - face0: {fileID: 21300000, guid: 34dc7c44561be4448bed678496348677, type: 3}
+  - face1: {instanceID: 0}
+  - face2: {instanceID: 0}
+  - face3: {instanceID: 0}
+  - face4: {instanceID: 0}
+  - face5: {instanceID: 0}
+  - face6: {instanceID: 0}
+  - face7: {instanceID: 0}
+  - face8: {instanceID: 0}
+  - face9: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
