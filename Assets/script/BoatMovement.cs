@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BoatMovement : MonoBehaviour {
 
-	public int boatSpeed = -2;
+	public int boatSpeed = -3;
 	public int boatSpeedMove = 10;
 	public Player player;
 	public int damageToPlayer;

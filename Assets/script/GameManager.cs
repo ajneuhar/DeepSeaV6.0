@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		PowerUps.haveExplodingArrowPowerUp = false;
+		PowerUps.haveMachingGunPowerUp = false;
+		PowerUps.haveShieldPowerUp = false;
+		PowerUps.haveSpecialArrowPowerUp = false;
+
+
 		killCount = 0; 
 		// Initilizae score.
 		score = 0;
@@ -38,6 +44,11 @@ public class GameManager : MonoBehaviour {
 		if (score >= givePowerUp && !LevelManager.levelOver) {
 			StartCoroutine(CreatePowerUp());
 			givePowerUp += 200;
+		}
+
+		if (LevelManager.level % 6 == 0) {
+			PowerUps.perLevelLife = true;
+			CreatePowerUp();
 		}
 	}
 

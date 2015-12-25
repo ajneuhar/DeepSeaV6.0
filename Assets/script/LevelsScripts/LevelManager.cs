@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour {
 	public GameObject enemy3;
 	public GameObject levelButton;
 	public static bool levelOver; 
-	private int level;
+	public static int level;
 	public static string startPath;
 	public static string secondPath;
 	private int numEnemy1;
@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour {
 	void NextLevel () {
 		levelOver = false; 
 		openSound = true;
+	
 		CreateEnemys();
 
 	}
@@ -49,6 +50,8 @@ public class LevelManager : MonoBehaviour {
 			Debug.Log("Next level Bitch!!!!!!!!!");
 			StartCoroutine (LevelChange());
 		}
+
+
 	}
 	
 	void CreateEnemys() {
@@ -59,22 +62,26 @@ public class LevelManager : MonoBehaviour {
 
 	IEnumerator CreateEnemy1() {
 		for (int i = 0; i < numEnemy1; i++) {
+
 			Instantiate(enemy1, VectorStartEnemy(), Quaternion.identity);
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(2f);
+
 		}
 	}
 
 	IEnumerator CreateEnemy2() {
 		for (int i = 0; i < numEnemy2; i++) {
+			yield return new WaitForSeconds(3.2f);
 			Instantiate(enemy2, VectorStartEnemy(), Quaternion.identity);
-			yield return new WaitForSeconds(1.7f);
+
 		}
 	}
 
 	IEnumerator CreateEnemy3() {
 		for (int i = 0; i < numEnemy3; i++) {
+			yield return new WaitForSeconds(3.7f);
 			Instantiate(enemy3, VectorStartEnemy(), Quaternion.identity);
-			yield return new WaitForSeconds(2.4f);
+
 		}
 	}
 
@@ -163,22 +170,22 @@ public class LevelManager : MonoBehaviour {
 				break;
 
 			case(4) :
-				numEnemy1 = 1;
+				numEnemy1 = 2;
 				numEnemy2 = 1;
 				numEnemy3 = 1;
 				numTotal = numEnemy1 + numEnemy2 + numEnemy3;
 				break;
 
 			case(5) :
-				numEnemy1 = 3;
+				numEnemy1 = 2;
 				numEnemy2 = 0;
-				numEnemy3 = 1;
+				numEnemy3 = 2;
 				numTotal = numEnemy1 + numEnemy2 + numEnemy3;
 				break;
 
 			case(6):
-				numEnemy1 = 2;
-				numEnemy2 = 2;
+				numEnemy1 = 3;
+				numEnemy2 = 1;
 				numEnemy3 = 1;
 				numTotal = numEnemy1 + numEnemy2 + numEnemy3;
 				break;

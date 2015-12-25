@@ -11,7 +11,7 @@ public class PowerUps : MonoBehaviour {
 	private Player player;
 	// For update the spear.
 	public MoveBullet spear;
-	private int playerRevive = 20;
+	private int playerRevive = 40;
 
 
 	// For changing the boat sprite.
@@ -35,7 +35,13 @@ public class PowerUps : MonoBehaviour {
 	public static bool gotMachineGun;
 	public static bool gotElectricArr; 
 
+	
+	public static bool haveExplodingArrowPowerUp;
+	public static bool haveMachingGunPowerUp;
+	public static bool haveSpecialArrowPowerUp;
+	public static bool haveShieldPowerUp;
 
+	public static bool perLevelLife;
 
 
 	// Use this for initialization
@@ -50,13 +56,29 @@ public class PowerUps : MonoBehaviour {
 	
 
 	private void RandomPowerUp() {
-		if (spearGun.numOfSpecialArrow >= 4) {
-			powerUp = Random.Range(1, 5);
-		} else {
-			powerUp = Random.Range(1, 6);
-		}	
-
 		powerUpTime = Random.Range(20, 31);
+
+		if (perLevelLife) {
+			powerUp = 1;
+			perLevelLife = false;
+		}
+
+		if (spearGun.numOfSpecialArrow >= 4) {
+			haveSpecialArrowPowerUp = true;
+		} else {
+			haveSpecialArrowPowerUp = false;
+		}
+
+
+		bool[] listOfOptions = new bool[] {false, false, haveExplodingArrowPowerUp, haveShieldPowerUp, haveMachingGunPowerUp, haveSpecialArrowPowerUp};
+		powerUp = Random.Range(1, 6);
+
+		while (listOfOptions[powerUp]) {
+			powerUp = Random.Range(1, 6);
+		}
+
+
+
 	}
 
 	IEnumerator ActivatePowerUp() {
@@ -71,6 +93,7 @@ public class PowerUps : MonoBehaviour {
 			break;
 		
 		case(2) :
+			haveExplodingArrowPowerUp = true;
 			gotExpArrows = true; 
 			spear.WeaponUpdate(2);
 
@@ -79,6 +102,7 @@ public class PowerUps : MonoBehaviour {
 			yield return new WaitForSeconds(powerUpTime);
 			spear.WeaponUpdate(1);
 			Debug.Log(Time.time);
+			haveExplodingArrowPowerUp = false;
 			Destroy(this.gameObject);
 			break;
 
@@ -95,6 +119,7 @@ public class PowerUps : MonoBehaviour {
 			*/
 
 		case(3) : 
+			haveShieldPowerUp = true;
 			gotShield = true; 
 			boatR.sprite = untouchableBoat;
 			haveShield = true; 
@@ -106,23 +131,29 @@ public class PowerUps : MonoBehaviour {
 			boatR.sprite = regBoat;
 			player.SetUnTouchable(false);
 			Debug.Log("is player untouchable =====> " + player.GetUnTouchable());
+			haveShieldPowerUp = false;
 			Destroy(this.gameObject);
 			break;
 
 		case(4) :
+			haveMachingGunPowerUp = true;
 			gotMachineGun = true;
 			spearGun.fireRate = 4;
 
 			yield return new WaitForSeconds(powerUpTime);
-
 			spearGun.fireRate = 2;
+
+			haveMachingGunPowerUp = false;
+			Destroy(this.gameObject);
 			break;
 
 		case(5) :
 			gotElectricArr = true;
 			spearGun.numOfSpecialArrow++;
+			Destroy(this.gameObject);
 			//: TODO: GUI for special Arrow.
 			break;
+
 		}
 
 
@@ -134,12 +165,12 @@ public class PowerUps : MonoBehaviour {
 
 	//TODO: 
 	IEnumerator OnCollisionStay2D (Collision2D other) {
-		RandomPowerUp();
+
 
 		string tag = other.gameObject.tag;
 
 		if (tag == "Boat" ) {
-
+			RandomPowerUp();
 
 			tookPowerUp = true; 
 			
