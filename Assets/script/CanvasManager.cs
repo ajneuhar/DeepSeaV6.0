@@ -7,6 +7,7 @@ public class CanvasManager : MonoBehaviour {
 	
 	public GameObject canvasOne;
 	public GameObject canvasTwo;
+	public GameObject canvasThree;
 
 	public Text highScore;
 
@@ -40,6 +41,10 @@ public class CanvasManager : MonoBehaviour {
 
 	public void onClickCreditsButton () {
 		canvasTwo.active = true;
+		canvasOne.active = false;
+	}
+	public void onClickHightScoreButton () {
+		canvasThree.active = true;
 		canvasOne.active = false;
 	}
 }
