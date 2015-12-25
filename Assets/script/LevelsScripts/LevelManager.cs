@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour {
 	private int numEnemy2;
 	private int numEnemy3;
 
+
     // our spear
     public MoveBullet spear;
 
@@ -148,15 +149,15 @@ public class LevelManager : MonoBehaviour {
 				break;
 			
 			case(2) :
-				numEnemy1 = 1;
-				numEnemy2 = 1;
+				numEnemy1 = 2;
+				numEnemy2 = 0;
 				numEnemy3 = 0;
 				numTotal = numEnemy1 + numEnemy2 + numEnemy3;
 				break;
 
 			case(3) :
-				numEnemy1 = 1;
-				numEnemy2 = 2;
+				numEnemy1 = 2;
+				numEnemy2 = 1;
 				numEnemy3 = 0;
 				numTotal = numEnemy1 + numEnemy2 + numEnemy3;
 				break;

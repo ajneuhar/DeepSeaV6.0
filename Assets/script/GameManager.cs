@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+
+
 	public Text scoreText;
 	public static int score;
 	public static int numOfEnemys;
 	public GameObject powerUp;
-	int givePowerUp;
+	private int givePowerUp;
 
 	//For Sound
 	public static bool deathSound;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour {
 		// Initilizae score.
 		score = 0;
 		givePowerUp = 100;
+		CreatePowerUp();
 	}
 
 	// Update is called once per frame
@@ -41,6 +44,14 @@ public class GameManager : MonoBehaviour {
 	public static void KillPlayer (Player player) {
 		deathSound = true;
 		Debug.Log ("Player has Been Killed");
+
+		Debug.LogError("score is ==========> " + score);
+		Debug.LogError("high score was ==========> " + PlayerPrefs.GetInt("HighScore"));
+		if (score > PlayerPrefs.GetInt("HighScore")) {
+			PlayerPrefs.SetInt("HighScore", score);
+			Debug.LogError("new high score is ==========> " + PlayerPrefs.GetInt("HighScore"));
+		}
+
 		//Application.LoadLevel("MainMenu");
 		
 	}
@@ -49,12 +60,12 @@ public class GameManager : MonoBehaviour {
 		killCount++;
 		numOfEnemys--;
 
+
 		Destroy (enemy.gameObject);
 	}
 
-	private void EnemyKillAnimation(Enemy enemy) {
 
-	}
+
 
 
 	IEnumerator CreatePowerUp() {

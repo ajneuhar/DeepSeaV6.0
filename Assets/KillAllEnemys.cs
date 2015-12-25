@@ -11,6 +11,8 @@ public class KillAllEnemys : MonoBehaviour {
 		player = FindObjectOfType(typeof(Player)) as Player;
 		player.SetUnTouchable(true);
 
+		GameManager.numOfEnemys = -1;
+
 		for (int i = 0; i < 4; i++) {
 			KillEnemys();
 			yield return new WaitForSeconds(0.5f);

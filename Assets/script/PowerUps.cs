@@ -45,7 +45,7 @@ public class PowerUps : MonoBehaviour {
 		spearGun = GameObject.Find("spearGun").GetComponent<SpearGun>();
 		anim = GetComponent<Animator>();
 
-		RandomPowerUp();
+
 	}
 	
 
@@ -66,6 +66,7 @@ public class PowerUps : MonoBehaviour {
 			gotLife = true;
 			Debug.Log("got life");
 			player.RevivePlayer(playerRevive);
+			yield return new WaitForSeconds(3f);
 			Destroy(this.gameObject);
 			break;
 		
@@ -132,18 +133,26 @@ public class PowerUps : MonoBehaviour {
 
 
 	//TODO: 
-	void OnCollisionStay2D (Collision2D other) {
+	IEnumerator OnCollisionStay2D (Collision2D other) {
+		RandomPowerUp();
+
 		string tag = other.gameObject.tag;
 
 		if (tag == "Boat" ) {
 
+
 			tookPowerUp = true; 
 			
 			anim.SetBool("tookPowerUp", true);
-			
+
 			GetComponent<Collider2D>().isTrigger = true;
 
 			StartCoroutine(ActivatePowerUp());
+
+			yield return new WaitForSeconds(0.3f);
+
+			GetComponent<Renderer>().sortingOrder = 2;
+
 
 		}
 	}

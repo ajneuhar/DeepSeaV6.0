@@ -42,6 +42,14 @@ public class BoatMovement : MonoBehaviour {
 			} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
 				transform.Rotate(Vector3.forward * -boatSpeed);
 			}
+		} else {
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+				transform.Rotate(Vector3.forward * boatSpeed / 2);
+				
+				
+			} else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+				transform.Rotate(Vector3.forward * -boatSpeed / 2);
+			}
 		}
 
 
