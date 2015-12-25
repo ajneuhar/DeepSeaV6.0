@@ -162,10 +162,13 @@ public class EnemyAI : MonoBehaviour {
 			}
 			return;
 		} else {
-			// Always look at player.
-			Vector3 diraction = target.position - transform.position;
-			float angle = Mathf.Atan2(diraction.y,diraction.x) * Mathf.Rad2Deg - 90f;
-			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			// look at player while not dead.
+			if (!GetComponent<Animator>().GetBool("death")) {
+				Vector3 diraction = target.position - transform.position;
+				float angle = Mathf.Atan2(diraction.y,diraction.x) * Mathf.Rad2Deg - 90f;
+				transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			}
+
 		}
 
 		if (path == null) {
