@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		scoreText.text = "Score: " + score;
+		scoreText.text = "" + score;
 		if (score >= givePowerUp && !LevelManager.levelOver) {
 			StartCoroutine(CreatePowerUp());
 			givePowerUp += 200;
