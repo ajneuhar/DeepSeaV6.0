@@ -47,7 +47,7 @@ public class SpearGun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		temp.text = "x  " + numOfSpecialArrow;
+		temp.text = "x " + numOfSpecialArrow;
 
 
 		if (Time.timeScale != 0) {
