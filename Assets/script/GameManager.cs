@@ -78,8 +78,17 @@ public class GameManager : MonoBehaviour {
 		}
 
 		Application.LoadLevel("MainMenu");
-		
 	}
+
+	/*
+	public void NewGame() {
+		StartCoroutine(StartNewGame());
+	}
+
+	IEnumerator StartNewGame() {
+		yield return new WaitForSeconds(1f);
+		Application.LoadLevel("MainMenu");
+	} */
 	
 	public static void KillEnemy (Enemy enemy) {
 
