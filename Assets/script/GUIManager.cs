@@ -19,16 +19,14 @@ public class GUIManager : MonoBehaviour {
 	public Sprite face8;
 	public Sprite face9;
 
-	public Text temp;
 
 
-	
+
 
 	// Update is called once per frame
 	void Update()
-
 	{
-		temp.text = "X" + SpearGun.numOfSpecialArrow;
+
 		switch (Player.playerStats.health) {
 		case(100):
 			bar.fillAmount = 1f;
