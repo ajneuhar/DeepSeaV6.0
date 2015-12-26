@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 
 
 	public GameObject enemyO;
-	public Text temp;
+
 
 	
 	// Use this for initialization
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		temp.text = "x  " + SpearGun.numOfSpecialArrow;
+
 		scoreText.text = "" + score;
 		if (score >= givePowerUp && !LevelManager.levelOver) {
 			StartCoroutine(CreatePowerUp());

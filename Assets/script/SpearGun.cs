@@ -27,6 +27,7 @@ public class SpearGun : MonoBehaviour {
 	public GameObject specialArrow;
 	public int numOfSpecialArrow;
 	bool isSpecialArrow;
+	public Text temp;
 	
 
 
@@ -46,6 +47,7 @@ public class SpearGun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		temp.text = "x  " + numOfSpecialArrow;
 
 
 		if (Time.timeScale != 0) {
