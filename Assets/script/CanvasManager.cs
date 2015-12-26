@@ -47,6 +47,6 @@ public class CanvasManager : MonoBehaviour {
 	public void onClickHightScoreButton () {
 		canvasThree.active = true;
 		canvasOne.active = false;
-		highScore.text = "Highest Score is: " + PlayerPrefs.GetInt("HighScore");
+		highScore.text = "" + PlayerPrefs.GetInt("HighScore");
 	}
 }
