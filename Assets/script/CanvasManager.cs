@@ -30,6 +30,7 @@ public class CanvasManager : MonoBehaviour {
 	public void onClickBackButton () {
 		canvasOne.active = true;
 		canvasTwo.active = false;
+		canvasThree.active = false;
 	}
 
 	public void onClickTutorialButton()
