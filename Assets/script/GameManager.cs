@@ -23,10 +23,6 @@ public class GameManager : MonoBehaviour {
 
 
 	public GameObject enemyO;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 
 	
 	// Use this for initialization
@@ -48,10 +44,6 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 		scoreText.text = "" + score;
 		if (score >= givePowerUp && !LevelManager.levelOver) {
 			StartCoroutine(CreatePowerUp());
@@ -97,9 +89,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-
-
-
 	IEnumerator CreatePowerUp() {
 		if (numOfPowerUps < 2) {
 			numOfPowerUps++;
@@ -110,8 +99,4 @@ public class GameManager : MonoBehaviour {
 		}
 	
 	}
-
-
-
-
 }

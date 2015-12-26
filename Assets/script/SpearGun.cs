@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SpearGun : MonoBehaviour {
 
@@ -24,15 +26,9 @@ public class SpearGun : MonoBehaviour {
 	public GameObject specialArrow;
 	public int numOfSpecialArrow;
 	bool isSpecialArrow;
-<<<<<<< HEAD
-	public Text temp;
+
+	public Text numElec;
 	
-=======
->>>>>>> origin/master
-
-
-
-
 
 	// Use this for initialization
 	void Awake () {
@@ -47,8 +43,7 @@ public class SpearGun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		temp.text = "x " + numOfSpecialArrow;
-
+		numElec.text = "x  " + numOfSpecialArrow;
 		if (Time.timeScale != 0) {
 			if (fireRate == 0) {
 				if (Input.GetKeyDown(KeyCode.Space)) {

@@ -73,7 +73,7 @@ public class MoveBullet : MonoBehaviour {
 	// layer 0 is the deepest.
 	public void WeaponUpdate(int weaponType){
 		spearR = GetComponent<SpriteRenderer>();
-		CurrentArrow = GameObject.Find("CurrentArrow").GetComponent<Image>();
+		// CurrentArrow = GameObject.Find("CurrentArrow").GetComponent<Image>();
 
 
 		switch(weaponType) {
@@ -81,7 +81,7 @@ public class MoveBullet : MonoBehaviour {
 			weaponHitLayer = 1;
 			damageToEnemy = 5;
 			spearR.sprite = regSpear; 
-			CurrentArrow.sprite = HeapRegArrow;
+			//CurrentArrow.sprite = HeapRegArrow;
 			isArrowExp = false;
 			return;
 			
@@ -89,7 +89,7 @@ public class MoveBullet : MonoBehaviour {
 			weaponHitLayer = 1;
 			damageToEnemy = 10;
 			spearR.sprite = expSpear; 
-			CurrentArrow.sprite = HeapExpArrow;
+			//CurrentArrow.sprite = HeapExpArrow;
 			isArrowExp = true;
 			return;
 			
@@ -97,7 +97,7 @@ public class MoveBullet : MonoBehaviour {
 			weaponHitLayer = 0;
 			damageToEnemy = 10;
 			spearR.sprite = deepSpear; 
-			CurrentArrow.sprite = HeapDeepArrow;
+			//CurrentArrow.sprite = HeapDeepArrow;
 			isArrowExp = false;
 			return;
 

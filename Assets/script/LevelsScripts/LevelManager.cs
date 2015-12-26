@@ -50,8 +50,6 @@ public class LevelManager : MonoBehaviour {
 			Debug.Log("Next level Bitch!!!!!!!!!");
 			StartCoroutine (LevelChange());
 		}
-
-
 	}
 	
 	void CreateEnemys() {
