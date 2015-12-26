@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		canvasOne.active = true;
+		// canvasOne.active = true;
 	}
 
 	public void onClickStartButton() {
