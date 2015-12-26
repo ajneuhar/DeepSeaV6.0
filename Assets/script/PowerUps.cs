@@ -131,7 +131,7 @@ public class PowerUps : MonoBehaviour {
 			player.SetUnTouchable(true);
 			Debug.Log("is player untouchable =====> " + player.GetUnTouchable());
 	
-			yield return new WaitForSeconds(10f);
+			yield return new WaitForSeconds(20f);
 
 			boatR.sprite = regBoat;
 			player.SetUnTouchable(false);

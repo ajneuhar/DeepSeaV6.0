@@ -147,10 +147,15 @@ public class BoatMovement : MonoBehaviour {
 
 
 	IEnumerator BlinkBoat() {
+
 		for (int i = 0; i < 3; i++) {
-			boatR.sprite = redBoat;
+			if (!PowerUps.haveShieldPowerUp) {
+				boatR.sprite = redBoat;
+			}
 			yield return new WaitForSeconds(0.3f);
-			boatR.sprite = regBoat;
+			if (!PowerUps.haveShieldPowerUp) { 
+				boatR.sprite = regBoat;
+			}
 			yield return new WaitForSeconds(0.3f);
 		}
 	}
