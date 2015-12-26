@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-
 
 public class SpearGun : MonoBehaviour {
 
@@ -27,8 +24,11 @@ public class SpearGun : MonoBehaviour {
 	public GameObject specialArrow;
 	public int numOfSpecialArrow;
 	bool isSpecialArrow;
+<<<<<<< HEAD
 	public Text temp;
 	
+=======
+>>>>>>> origin/master
 
 
 
@@ -48,7 +48,6 @@ public class SpearGun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		temp.text = "x " + numOfSpecialArrow;
-
 
 		if (Time.timeScale != 0) {
 			if (fireRate == 0) {
@@ -96,10 +95,6 @@ public class SpearGun : MonoBehaviour {
 
 		}
 	}
-	public int getNum(){
-		return numOfSpecialArrow;
-	}
-
 
 	void effect () {
 		Instantiate (specialArrow, firepoint.position, firepoint.rotation);

@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
 	//For Sound
 	public static bool spearHitEnemy;
 	public static bool enemyDeath;
+	public static int killCount;
 
 	//For Animation
     Animator anim;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour {
 
 	void Start () {
 		anim = GetComponent<Animator>();
+		killCount = 0; 
+
 		// Ignore walls.
 		enemyCollider2D = GetComponent<Collider2D>();
 
@@ -59,6 +62,7 @@ public class Enemy : MonoBehaviour {
 
 		if (enemyStats.health <= 0) {
 			enemyDeath = true;
+			killCount++;
 			anim.SetBool("death", true);
 			enemyCollider2D.isTrigger = true;
 			iTween.Stop(this.gameObject);

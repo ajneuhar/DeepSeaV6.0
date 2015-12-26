@@ -18,16 +18,23 @@ public class GUIManager : MonoBehaviour {
 	public Sprite face7;
 	public Sprite face8;
 	public Sprite face9;
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> origin/master
 
 
+	
 
 	// Update is called once per frame
 	void Update()
 	{
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 		switch (Player.playerStats.health) {
 		case(100):
 			bar.fillAmount = 1f;

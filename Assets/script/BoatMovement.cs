@@ -63,7 +63,7 @@ public class BoatMovement : MonoBehaviour {
 
 
 		} else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-			dir = (back.position - transform.position) * (boatSpeedMove / 2);
+			dir = (back.position - transform.position) * (boatSpeedMove / 1.5f);
 			rb.AddForce(dir);
 		}
 
