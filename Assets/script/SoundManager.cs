@@ -95,7 +95,7 @@ public class SoundManager : MonoBehaviour {
 		}
 		
 		
-		if (GameManager.killCount == 3) {
+		if (Enemy.killCount == 3) {
 			
 			switch (Random.Range(0, 8)) {
 			case(0):
@@ -123,7 +123,7 @@ public class SoundManager : MonoBehaviour {
 				sourceAudio.PlayOneShot(killEnemy8, 1f);
 				break;
 			}
-			GameManager.killCount = 0;
+			Enemy.killCount = 0;
 		}
 		
 		if (SpearGun.gunShot) {

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
 	//For Sound
 	public static bool deathSound;
-	public static int killCount;
+
 	public static bool powerUpcomeUp;
 
 	public static int numOfPowerUps;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 		PowerUps.haveSpecialArrowPowerUp = false;
 
 
-		killCount = 0; 
+
 		// Initilizae score.
 		score = 0;
 		givePowerUp = 100;
@@ -82,9 +82,8 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public static void KillEnemy (Enemy enemy) {
-		killCount++;
-		numOfEnemys--;
 
+		numOfEnemys--;
 
 		Destroy (enemy.gameObject);
 	}
