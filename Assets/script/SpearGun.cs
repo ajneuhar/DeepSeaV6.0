@@ -44,22 +44,25 @@ public class SpearGun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		numElec.text = "x  " + numOfSpecialArrow;
-		if (Time.timeScale != 0) {
-			if (fireRate == 0) {
-				if (Input.GetKeyDown(KeyCode.Space)) {
-					fire ();
-				}
-			}
-			else {
-				if (Input.GetKey (KeyCode.Space) && Time.time > timeTofire) {
-					timeTofire = Time.time + 1/fireRate;
-					fire ();
-					} else if (Input.GetKeyDown (KeyCode.LeftShift) && Time.time > timeTofire && numOfSpecialArrow > 0) {
-					timeTofire = Time.time + 1/fireRate;
-					numOfSpecialArrow--;
-					isSpecialArrow = true;
-					fire ();
 
+		if (!Player.dead) {
+			if (Time.timeScale != 0) {
+				if (fireRate == 0) {
+					if (Input.GetKeyDown(KeyCode.Space)) {
+						fire ();
+					}
+				}
+				else {
+					if (Input.GetKey (KeyCode.Space) && Time.time > timeTofire) {
+						timeTofire = Time.time + 1/fireRate;
+						fire ();
+					} else if (Input.GetKeyDown (KeyCode.LeftShift) && Time.time > timeTofire && numOfSpecialArrow > 0) {
+						timeTofire = Time.time + 1/fireRate;
+						numOfSpecialArrow--;
+						isSpecialArrow = true;
+						fire ();
+						
+					}
 				}
 			}
 		}
