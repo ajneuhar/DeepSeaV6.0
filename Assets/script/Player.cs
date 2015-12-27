@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 	public static bool dead; 
 
 	void Start() {
+		dead = false;
 		playerStats = new PlayerStats();
 		unTouchable = false;
 		Debug.Log("is player untouchable " + unTouchable);
