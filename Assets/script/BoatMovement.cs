@@ -16,6 +16,7 @@ public class BoatMovement : MonoBehaviour {
 
 	public float stopRotate = 0.1f;
 
+	// For sound
 	public static int counter;
 
 	private Rigidbody2D rb;

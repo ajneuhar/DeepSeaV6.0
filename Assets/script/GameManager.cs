@@ -16,17 +16,19 @@ public class GameManager : MonoBehaviour {
 
 	//For Sound
 	public static bool deathSound;
-
+	public static int deathCounter; 
 	public static bool powerUpcomeUp;
 
 	public static int numOfPowerUps;
 
 
 	public GameObject enemyO;
+	
 
 	
 	// Use this for initialization
 	void Start () {
+		deathCounter = 1;
 		numOfPowerUps = 0;
 		isPause = false;
 		PowerUps.haveExplodingArrowPowerUp = false;
@@ -75,21 +77,11 @@ public class GameManager : MonoBehaviour {
 		if (score > PlayerPrefs.GetInt("HighScore")) {
 			PlayerPrefs.SetInt("HighScore", score);
 			Debug.LogError("new high score is ==========> " + PlayerPrefs.GetInt("HighScore"));
-		}
-
-		Application.LoadLevel("MainMenu");
+		} 
 	}
 
-	/*
-	public void NewGame() {
-		StartCoroutine(StartNewGame());
-	}
 
-	IEnumerator StartNewGame() {
-		yield return new WaitForSeconds(1f);
-		Application.LoadLevel("MainMenu");
-	} */
-	
+
 	public static void KillEnemy (Enemy enemy) {
 
 		numOfEnemys--;

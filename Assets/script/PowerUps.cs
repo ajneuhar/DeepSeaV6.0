@@ -33,7 +33,8 @@ public class PowerUps : MonoBehaviour {
 	public static bool gotDepthArrows; 
 	public static bool gotShield; 
 	public static bool gotMachineGun;
-	public static bool gotElectricArr; 
+	public static bool gotElectricArr;
+	public static bool haveShieldAndGotHit;
 
 	
 	public static bool haveExplodingArrowPowerUp;
@@ -80,8 +81,6 @@ public class PowerUps : MonoBehaviour {
 			powerUp = Random.Range(1, 6);
 		}
 
-
-
 	}
 
 	IEnumerator ActivatePowerUp() {
@@ -107,6 +106,7 @@ public class PowerUps : MonoBehaviour {
 			spear.WeaponUpdate(1);
 			Debug.Log(Time.time);
 			haveExplodingArrowPowerUp = false;
+			powerUp = 1; // For sound
 
 			Destroy(this.gameObject);
 			break;
@@ -127,12 +127,14 @@ public class PowerUps : MonoBehaviour {
 			haveShieldPowerUp = true;
 			gotShield = true; 
 			boatR.sprite = untouchableBoat;
+			haveShieldAndGotHit = true;
 			haveShield = true; 
 			player.SetUnTouchable(true);
 			Debug.Log("is player untouchable =====> " + player.GetUnTouchable());
 	
 			yield return new WaitForSeconds(20f);
 
+			haveShieldAndGotHit = false;
 			boatR.sprite = regBoat;
 			player.SetUnTouchable(false);
 			Debug.Log("is player untouchable =====> " + player.GetUnTouchable());

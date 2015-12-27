@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 
 
 	public static PlayerStats playerStats;
-
+	public static bool dead; 
 
 	void Start() {
 		playerStats = new PlayerStats();
@@ -36,8 +36,15 @@ public class Player : MonoBehaviour {
 		playerStats.health -= damage;
 
 		if (playerStats.health <= 0) {
+			dead = true;  
+			StartCoroutine(NewGame());
 			GameManager.KillPlayer(this);
 		}
+	}
+
+	IEnumerator NewGame() {
+		yield return new WaitForSeconds(3f);
+		Application.LoadLevel("EndScene");
 	}
 
 	public void RevivePlayer (int revive) {
