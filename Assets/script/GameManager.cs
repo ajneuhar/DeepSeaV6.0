@@ -69,7 +69,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public static void KillPlayer (Player player) {
-		deathSound = true;
+		if (deathCounter == 1) {
+			deathSound = true;
+		}
 		Debug.Log ("Player has Been Killed");
 
 		Debug.LogError("score is ==========> " + score);
@@ -77,7 +79,8 @@ public class GameManager : MonoBehaviour {
 		if (score > PlayerPrefs.GetInt("HighScore")) {
 			PlayerPrefs.SetInt("HighScore", score);
 			Debug.LogError("new high score is ==========> " + PlayerPrefs.GetInt("HighScore"));
-		} 
+		}
+		deathCounter++;
 	}
 
 
