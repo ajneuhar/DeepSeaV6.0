@@ -20,7 +20,7 @@ public class OpenCloseScene : MonoBehaviour {
 
 	IEnumerator RunMovie() {
 		yield return new WaitForSeconds(1f);
-		iTween.MoveTo(this.gameObject ,iTween.Hash("path", iTweenPath.GetPath("Movie"), "time", 15f,
+		iTween.MoveTo(this.gameObject ,iTween.Hash("path", iTweenPath.GetPath("Movie"), "time", 30f,
 		                                           "easetype", iTween.EaseType.easeInOutSine,  "onComplete", "NextScene"));
 	}
 
