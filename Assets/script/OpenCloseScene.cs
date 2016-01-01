@@ -25,7 +25,7 @@ public class OpenCloseScene : MonoBehaviour {
 	}
 
 	void NextScene() {
-		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		//transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		Application.LoadLevel("MainMenu");
 	}
 
